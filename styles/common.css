@@ -1,4 +1,5 @@
 /* :root, style */
 body {
-	color: blue;
+	max-inline-size: 50rem;
+	margin-inline: auto;
 }
