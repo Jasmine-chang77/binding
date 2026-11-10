@@ -1,0 +1,13 @@
+:root {
+	/* Type */
+	--type-s: 1rem;
+	--type-m: 1.4rem;
+
+}
+
+body {
+	font-size: var(--type-m);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	background-color: papayawhip;
+	color: blueviolet;
+}
