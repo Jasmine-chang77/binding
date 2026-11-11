@@ -9,11 +9,10 @@
 .transitional-sans { font-family: "Inter", sans-serif; }
 .geometric-sans { font-family: "Jost", sans-serif; }
 
-article {
-	p {
-		/* I want to control the hyphenation, I learned that the auto setting is: Minimum word length to allow hyphenation: 5, Minimum number of characters before the hyphen: 2, Minimum number of characters after the hyphen: 2 */
-		/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/hyphenate-limit-chars */
-		hyphens: auto;
-		hyphenate-limit-chars: 6 3 3;
-	}
+
+p {
+	/* I want to control the hyphenation, I learned that the auto setting is: Minimum word length to allow hyphenation: 5, Minimum number of characters before the hyphen: 2, Minimum number of characters after the hyphen: 2 */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/hyphenate-limit-chars */
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
 }
