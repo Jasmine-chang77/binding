@@ -9,8 +9,8 @@
 .transitional-sans { font-family: "Inter", sans-serif; }
 .geometric-sans { font-family: "Jost", sans-serif; }
 
-
-body {
-	max-inline-size: 50rem;
-	margin-inline: auto;
+article {
+	p {
+		hyphens: auto;
+	}
 }
