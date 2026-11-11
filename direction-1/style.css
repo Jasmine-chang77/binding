@@ -12,7 +12,7 @@
 	/* Type scale */
 	--text-small: 0.8rem;
 	--text-nav: 1rem;
-	--text-body: 1.2rem;
+	--text-body: 1.25rem;
 	--text-quote: 2rem;
 	--text-specimen: 2.1rem;
 	--text-punctuation: 2.5rem;
@@ -201,7 +201,6 @@ article > section {
 
 	> :not(blockquote, dl, .blank-row) {
 		background-color: var(--paper);
-		border-inline: 0.05rem solid var(--stroke);
 		padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
 	}
 
