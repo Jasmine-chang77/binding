@@ -1,4 +1,15 @@
-/* :root, style */
+/* Type classification specimens shared by all three directions. */
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Besley:ital,wght@0,400..900;1,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+.humanist { font-family: "EB Garamond", serif; }
+.transitional { font-family: "Baskervville", serif; }
+.modern { font-family: "Bodoni Moda", serif; }
+.slab { font-family: "Besley", serif; }
+.humanist-sans { font-family: "Cabin", sans-serif; }
+.transitional-sans { font-family: "Inter", sans-serif; }
+.geometric-sans { font-family: "Jost", sans-serif; }
+
+
 body {
 	max-inline-size: 50rem;
 	margin-inline: auto;
