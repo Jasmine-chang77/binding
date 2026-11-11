@@ -4,15 +4,288 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
-	/* Type */
-	--type-s: 1rem;
-	--type-m: 1.4rem;
+	/* Color */
+	--black: #000000;
+	--paper: #FAF9F6;
+	--red: #E2231A;
 
+	/* Type scale */
+	--text-small: 0.8rem;
+	--text-nav: 1rem;
+	--text-body: 1.15rem;
+	--text-specimen: 2.1rem;
+	--text-punctuation: 2.6rem;
+	--text-top: 3rem;
+	--text-title: 4.75rem;       /* “thinking” and “with” */
+	--text-title-large: 10.25rem;   /* “type” */
+	--text-number: 7rem;        /* section numbers */
+
+	--leading-body: 1.7;
+	--leading-tight: 1.15;
+	--tracking-body: 0.03em;
+	--tracking-caps: 0.1em;
+	--tracking-display: -0.03em;
+
+	--underline: 0.08rem;
+	--offset: 0.18rem;
+
+	/* Heading */
+	--crop: 0.6;
+	--crop-top: 0.4;
+
+	/* Border */
+	--border: 0.05rem;
+
+	/* Spacing */
+	--pad: 1.25rem;
+	--space-xs: 0.2rem;
+	--space-s: 0.75rem;
+	--space-m: 1.5rem;
+	--space-l: 3rem;
+	--space-xl: 6rem;
+	--line-length: 36rem;
 }
 
 body {
-	font-size: var(--type-m);
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	background-color: papayawhip;
-	color: blueviolet;
+	background-color: var(--black);
+	color: var(--paper);
+	font-family: 'Outfit', sans-serif;
+	font-size: var(--text-body);
+	font-weight: 350;
+	line-height: var(--leading-body);
+	letter-spacing: var(--tracking-body);
+}
+
+a {
+	font-weight: 500;
+	text-decoration: underline;
+	text-decoration-thickness: var(--underline);
+	text-underline-offset: var(--offset);
+}
+
+em {
+	font-style: italic;
+}
+
+header > * {
+	padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+}
+
+nav {
+	background-color: var(--red);
+	color: var(--black);
+	font-size: var(--text-nav);
+	padding-block-start: var(--space-s);
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+h1 {
+	background-color: var(--red);
+	color: var(--black);
+	text-transform: lowercase;
+	font-weight: 700;
+	letter-spacing: var(--tracking-display);
+	padding-block-start: var(--space-l);
+
+	/* Hides the bottom of “type,” cut off by the black page below. */
+	overflow: hidden;
+
+	> span {
+		display: block;
+		font-size: var(--text-title);
+		line-height: 1;
+	}
+
+	> span:nth-child(2) { text-align: end; }
+
+	> span:nth-child(3) {
+		font-size: var(--text-title-large);
+		line-height: var(--crop);
+	}
+}
+
+.byline,
+.source {
+	font-size: var(--text-small);
+	padding-block: var(--space-s);
+	border-block-end: var(--border) solid var(--paper);
+
+	margin-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+	padding-inline: 0;
+}
+
+.byline {
+	margin-block-start: var(--space-l);
+}
+
+.source {
+	margin-block-end: var(--space-l);
+	a {
+		text-decoration: none;
+
+		&::after { content: ' →';}
+	}
+}
+
+article {
+	> section {
+		padding-block-end: var(--space-xl);
+
+		> p {
+			padding-block-start: var(--space-m);
+		}
+
+		> :not(h2) {
+			padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+		}
+	}
+
+	p + p {
+		margin-block-start: var(--space-m);
+	}
+
+	.first-letter {
+		color: var(--red);
+		font-weight: 600;
+	}
+
+	h2 {
+		position: sticky;
+		inset-block-start: 0;
+		background-color: var(--black);
+		margin-block-end: var(--space-m);
+	}
+
+	mark {
+		display: inline;
+		background-color: var(--red);
+		color: var(--black);
+		font-weight: 500;
+		padding-inline: var(--space-xs);
+	}
+}
+
+.section-number {
+	display: block;
+	background-color: var(--red);
+	color: var(--black);
+	font-size: var(--text-number);
+	font-weight: 700;
+	letter-spacing: var(--tracking-display);
+	line-height: var(--crop);
+	padding-block-start: var(--space-l);
+	overflow: hidden;
+}
+
+.section-title {
+	display: block;
+	margin-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+	padding-block: var(--space-s);
+	border-block-end: var(--border) solid var(--paper);
+	margin-block-start: var(--space-m);
+
+	font-size: var(--text-body);
+	font-weight: 400;
+	line-height: var(--leading-tight);
+	text-wrap: balance;
+}
+
+.classification,
+.punctuation {
+	margin-block-start: var(--space-l);
+}
+
+.classification dt {
+	font-size: var(--text-specimen);
+	line-height: var(--leading-tight);
+}
+
+.punctuation dt {
+	font-size: var(--text-punctuation);
+	line-height: var(--leading-tight);
+}
+
+dd {
+	color: var(--red);
+	font-size: var(--text-small);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-caps);
+	margin-block-end: var(--space-m);
+}
+
+footer {
+	background-color: var(--red);
+	color: var(--black);
+	text-transform: lowercase;
+	font-weight: 600;
+	font-size: var(--text-small);
+
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	a, p {
+		padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+	}
+
+	a {
+		font-size: var(--text-top);
+		font-weight: 700;
+		letter-spacing: var(--tracking-display);
+		line-height: var(--crop-top);
+		text-align: end;
+		text-decoration: none;
+		margin-block-end: var(--space-xl);
+
+		&::after {
+			content: ' ↑';
+		}
+	}
+}
+
+.title-echo {
+	background-color: var(--black);
+	color: var(--red);
+	margin-block-start: var(--space-l);
+
+	text-transform: lowercase;
+	font-weight: 700;
+	letter-spacing: var(--tracking-display);
+
+	> span {
+		display: block;
+		font-size: var(--text-title);
+		line-height: 1;
+	}
+
+	> span:first-child {
+		margin-block-start: calc(var(--text-nav) * -1);
+	}
+
+	> span:nth-child(2) {
+		text-align: end;
+	}
+
+	> span:nth-child(3) {
+		font-size: var(--text-title-large);
+		line-height: var(--crop);
+	}
+}
+
+
+@media (hover: hover) {
+	article a:hover {
+		color: var(--red);
+	}
+
+	nav a:hover,
+	.source a:hover,
+	footer a:hover {
+		text-decoration-line: underline;
+	}
 }
