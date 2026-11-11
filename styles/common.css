@@ -15,6 +15,5 @@ article {
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/hyphenate-limit-chars */
 		hyphens: auto;
 		hyphenate-limit-chars: 6 3 3;
-		text-wrap: pretty
 	}
 }
