@@ -20,6 +20,7 @@
 
 	--leading-body: 1.75;
 	--leading-quote: 1.45;
+	--leading-title: 1.2;
 	--leading-tight: 1.15;
 	--tracking-caps: 0.05em;
 
@@ -59,7 +60,6 @@ main { grid-area: main; }
 footer { grid-area: footer; }
 
 header > :not(nav),
-header::after,
 nav ul,
 h1 > span,
 h1::before,
@@ -70,6 +70,7 @@ footer {
 	border-radius: var(--radius);
 	padding: var(--pad);
 }
+
 
 header {
 	display: grid;
@@ -92,6 +93,7 @@ nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
 		block-size: var(--nav-height);
 	}
 }
@@ -125,12 +127,10 @@ header > h1 {
 
 	font-size: var(--text-title);
 	font-weight: 500;
-	line-height: 1.4;
+	line-height: var(--leading-title);
 }
 
 h1 > span {
-	padding-block: var(--space-s);
-	padding-inline: var(--space-s);
 	display: grid;
 	justify-items: center;
 	align-items: center;
