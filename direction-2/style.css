@@ -16,9 +16,9 @@
 	--text-specimen: 2.1rem;
 	--text-punctuation: 2.6rem;
 	--text-top: 3rem;
-	--text-title: 4.75rem;       /* “thinking” and “with” */
-	--text-title-large: 10.25rem;   /* “type” */
-	--text-number: 7rem;        /* section numbers */
+	--text-title: 4.75rem;
+	--text-title-large: 10.25rem;
+	--text-number: 7rem;
 
 	--leading-body: 1.7;
 	--leading-tight: 1.15;
@@ -29,7 +29,7 @@
 	--underline: 0.08rem;
 	--offset: 0.18rem;
 
-	/* Heading */
+	/* Using leading to control cropped expressive type */
 	--crop: 0.6;
 	--crop-top: 0.4;
 
