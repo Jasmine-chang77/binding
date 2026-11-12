@@ -53,6 +53,13 @@ body {
 		'header'
 		'main'
 		'footer';
+
+	@media (width > 768px) {
+		grid-template-columns: 2fr 5fr;
+		grid-template-areas:
+		'header main'
+		'header footer';
+	}
 }
 
 header { grid-area: header; }
@@ -78,6 +85,28 @@ header {
 		'byline'
 		'title'
 		'source';
+
+	@media (width > 768px) {
+		position: sticky;
+		inset-block-start: var(--nav-height);
+		block-size: calc( 100vh - var(--nav-height));
+
+		grid-template-rows: auto auto auto auto 1fr;
+		grid-template-areas:
+			'nav'
+			'byline'
+			'title'
+			'source'
+			'filler';
+
+		&::after {
+			content: '';
+			grid-area: filler;
+			background-color: var(--paper);
+			border: 0.05rem solid var(--stroke);
+			border-radius: var(--radius);
+		}
+	}
 }
 
 nav {
