@@ -25,10 +25,10 @@
 	--tracking-caps: 0.05em;
 
 	/* Spacing */
-	--offset: 0.15rem; /* underline offset */
-	--radius: 1rem; /* cell corners */
-	--pad: 1.2rem; /* inside a cell */
-	--blank: 3.2rem; /* height of a row of empty cells */
+	--offset: 0.15rem;  /* underline offset */
+	--radius: 1rem;     /* cell corners */
+	--pad: 1.2rem;      /* inside a cell */
+	--blank: 3.2rem;    /* height of a row of empty cells */
 	--nav-height: 4rem; /* the fixed nav on mobile */
 	--space-xs: 0.3rem;
 	--space-s: 0.75rem;

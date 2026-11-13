@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Direction 1</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../styles/reset.css"> <!-- ../ says go up to the roots -->
-		<link rel="stylesheet" href="../styles/common.css">
-		<link rel="stylesheet" href="style.css">
-		<!-- large to small -->
+		<title>Direction 1</title>
+		<!-- <link rel="stylesheet" href="../styles/reset.css"> -->
+		<!-- <link rel="stylesheet" href="../styles/common.css"> -->
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<style>
+			@import '../styles/reset.css' layer(reset);
+			@import '../styles/common.css' layer(common);
+			@import 'style.css' layer(page);
+		</style>
 	</head>
 
 	<body>
@@ -14,7 +18,7 @@
 			<nav>
 				<ul>
 					<li><a href="../">Home</a></li>
-					<li><a href="../direction-1/index.html">D1</a></li>
+					<li><a href="../direction-1/index.html">D1</a></li> <!-- ../ says go up to the roots -->
 					<li><a href="../direction-2/index.html">D2</a></li>
 					<li><a href="../direction-3/index.html">D3</a></li>
 				</ul>

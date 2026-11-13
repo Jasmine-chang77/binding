@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Jasmine's Bingding Project</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../styles/reset.css"> <!-- ../ says go up to the roots -->
-		<link rel="stylesheet" href="../styles/common.css">
-		<link rel="stylesheet" href="style.css">
-		<!-- large to small -->
+		<title>Direction 2</title>
+		<!-- <link rel="stylesheet" href="../styles/reset.css"> -->
+		<!-- <link rel="stylesheet" href="../styles/common.css"> -->
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<style>
+			@import '../styles/reset.css' layer(reset);
+			@import '../styles/common.css' layer(common);
+			@import 'style.css' layer(page);
+		</style>
 	</head>
 
 	<body>
