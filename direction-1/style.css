@@ -141,7 +141,7 @@ header > h1 {
 	grid-area: title;
 	background-color: transparent;
 	border-style: none;
-	min-block-size: calc(65svh - var(--nav-height));
+	min-block-size: calc(60svh - var(--nav-height));
 	padding: 0;
 
 	display: grid;
