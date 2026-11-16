@@ -46,8 +46,6 @@ body {
 	font-size: var(--text-body);
 	line-height: var(--leading-body);
 
-	padding-block-start: calc(var(--nav-height));
-
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-areas:
@@ -68,6 +66,7 @@ main { grid-area: main; }
 footer { grid-area: footer; }
 
 header > :not(nav),
+nav > ul,
 h1 > span,
 h1::before,
 h1::after,
@@ -82,14 +81,15 @@ footer {
 header {
 	display: grid;
 	grid-template-areas:
+		'nav'
 		'byline'
 		'title'
 		'source';
 
 	@media (width > 768px) {
 		position: sticky;
-		inset-block-start: var(--nav-height);
-		block-size: calc( 100vh - var(--nav-height));
+		inset-block-start: 0;
+		block-size: 90vh;
 
 		grid-template-rows: auto auto auto auto 1fr;
 		grid-template-areas:
@@ -110,18 +110,11 @@ header {
 }
 
 nav {
+	grid-area: nav;
 	font-size: var(--text-nav);
 	font-weight: 600;
 
-	position: fixed;
-	inset-block-start: 0;
-	inset-inline: 0;
-	background-color: var(--black);
-
 	ul {
-		background-color: var(--paper);
-		border: 0.05rem solid var(--stroke);
-
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -196,6 +189,7 @@ article {
 		text-transform: uppercase;
 		letter-spacing: var(--tracking-caps);
 		padding-block-end: var(--space-s);
+		padding-block-start: var(--space-xl);
 		text-wrap: balance;
 	}
 
@@ -218,7 +212,10 @@ article {
 	letter-spacing: var(--tracking-caps);
 }
 
-.section-number {
+article > section > span.section-number {
+	position: sticky;
+	inset-block-start: 0;
+
 	display: block;
 	text-align: center;
 	font-size: calc(var(--text-nav) * 1.8);
@@ -230,15 +227,6 @@ article {
 
 	&::before { content: '– §'; }
 	&::after { content: ' –'; }
-}
-
-.section-title {
-	display: block;
-	background-color: var(--paper);
-	border: 0.05rem solid var(--stroke);
-	border-block-end-style: none;
-	padding-block: var(--space-xl) var(--space-s);
-	padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
 }
 
 article > section {
@@ -259,12 +247,6 @@ article > section {
 	> :not(blockquote, dl):has(+ .blank-row) {
 		padding-block-end: var(--space-xl);
 		border-block-end: 0.05rem solid var(--stroke);
-	}
-
-	h2:first-child {
-		background-color: transparent;
-		border-style: none;
-		padding: 0;
 	}
 }
 
@@ -300,6 +282,10 @@ blockquote {
 	font-size: var(--text-quote);
 	font-weight: 500;
 	line-height: var(--leading-quote);
+	/* I want to control the hyphenation, I learned that the auto setting is: Minimum word length to allow hyphenation: 5, Minimum number of characters before the hyphen: 2, Minimum number of characters after the hyphen: 2 */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/hyphenate-limit-chars */
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
 }
 
 .classification dt {
@@ -330,6 +316,7 @@ footer {
 	a {
 		font-size: var(--text-nav);
 		font-weight: 500;
+		text-align: end;
 		margin-block-end: var(--space-m);
 	}
 
