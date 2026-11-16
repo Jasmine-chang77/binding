@@ -16,7 +16,7 @@
 	--text-quote: 2rem;
 	--text-specimen: 2.1rem;
 	--text-punctuation: 2.5rem;
-	--text-title: 3rem;
+	--text-title: 3.75rem;
 
 	--leading-body: 1.75;
 	--leading-quote: 1.45;
@@ -30,6 +30,7 @@
 	--pad: 1.2rem;      /* inside a cell */
 	--blank: 3.2rem;    /* height of a row of empty cells */
 	--nav-height: 4rem; /* the fixed nav on mobile */
+
 	--space-xs: 0.3rem;
 	--space-s: 0.75rem;
 	--space-m: 1.5rem;
@@ -67,7 +68,6 @@ main { grid-area: main; }
 footer { grid-area: footer; }
 
 header > :not(nav),
-nav ul,
 h1 > span,
 h1::before,
 h1::after,
@@ -119,6 +119,9 @@ nav {
 	background-color: var(--black);
 
 	ul {
+		background-color: var(--paper);
+		border: 0.05rem solid var(--stroke);
+
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -130,7 +133,7 @@ nav {
 .byline {
 	grid-area: byline;
 	font-size: var(--text-small);
-	padding-block-start: var(--space-l);
+	padding-block-start: calc(var(--space-m) * 3);
 }
 
 .source {
@@ -145,14 +148,15 @@ header > h1 {
 	grid-area: title;
 	background-color: transparent;
 	border-style: none;
+	min-block-size: calc(65svh - var(--nav-height));
 	padding: 0;
 
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	grid-template-areas:
-		'thinking thinking thinking thinking thinking thinking'
-		'blank1 blank1 blank1 blank1 with with'
-		'type type type blank2 blank2 blank2';
+		'thinking thinking thinking thinking'
+		'blank1 blank1 with with'
+		'type type type blank2';
 
 	font-size: var(--text-title);
 	font-weight: 500;
@@ -219,10 +223,22 @@ article {
 	text-align: center;
 	font-size: calc(var(--text-nav) * 1.8);
 	line-height: var(--leading-tight);
-	padding-block-end: var(--space-xl);
+	background-color: var(--paper);
+	border: 0.05rem solid var(--stroke);
+	border-radius: var(--radius);
+	padding-block: var(--space-m);
 
 	&::before { content: '– §'; }
 	&::after { content: ' –'; }
+}
+
+.section-title {
+	display: block;
+	background-color: var(--paper);
+	border: 0.05rem solid var(--stroke);
+	border-block-end-style: none;
+	padding-block: var(--space-xl) var(--space-s);
+	padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
 }
 
 article > section {
@@ -237,16 +253,18 @@ article > section {
 	> .blank-row + :not(blockquote, dl, .blank-row) {
 		padding-block-start: var(--space-xl);
 		border-block-start: 0.05rem solid var(--stroke);
-		border-start-start-radius: var(--radius);
-		border-start-end-radius: var(--radius);
 	}
 
 	> :last-child:not(blockquote, dl, .blank-row),
 	> :not(blockquote, dl):has(+ .blank-row) {
 		padding-block-end: var(--space-xl);
 		border-block-end: 0.05rem solid var(--stroke);
-		border-end-start-radius: var(--radius);
-		border-end-end-radius: var(--radius);
+	}
+
+	h2:first-child {
+		background-color: transparent;
+		border-style: none;
+		padding: 0;
 	}
 }
 
@@ -270,7 +288,7 @@ dl + .blank-row {
 }
 
 blockquote,
-article > section > dl {
+dl {
 	background-color: var(--paper);
 	border: 0.05rem solid var(--stroke);
 	border-radius: var(--radius);
