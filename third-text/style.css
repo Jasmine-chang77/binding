@@ -16,7 +16,7 @@
 	--text-quote: 2rem;
 	--text-specimen: 2.1rem;
 	--text-punctuation: 2.5rem;
-	--text-title: 3.75rem;
+	--text-title: 3.8rem;
 
 	--leading-body: 1.75;
 	--leading-quote: 1.45;
@@ -157,9 +157,9 @@ header > h1 {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-areas:
-		'thinking thinking thinking thinking'
-		'blank1 blank1 with with'
-		'type type type blank2';
+		'first first first first'
+		'second second blank1 blank1'
+		'blank2 third third third';
 
 	font-size: var(--text-title);
 	font-weight: 500;
@@ -173,9 +173,9 @@ h1 > span {
 }
 
 h1 {
-	> span:nth-child(1) { grid-area: thinking; }
-	> span:nth-child(2) { grid-area: with; }
-	> span:nth-child(3) { grid-area: type; }
+	> span:nth-child(1) { grid-area: first; }
+	> span:nth-child(2) { grid-area: second; }
+	> span:nth-child(3) { grid-area: third; }
 }
 
 h1 {
