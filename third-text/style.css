@@ -1,0 +1,337 @@
+/* Newsreader */
+/* font-family: "Newsreader", serif; */
+/* <weight>: Use a value from 200 to 800 */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+:root {
+	/* Color */
+	--paper: #FAF9F6;
+	--black: #000000;
+	--stroke: #D7D7D7;
+
+	/* Type scale */
+	--text-small: 0.8rem;
+	--text-nav: 1rem;
+	--text-body: 1.2rem;
+	--text-quote: 2rem;
+	--text-specimen: 2.1rem;
+	--text-punctuation: 2.5rem;
+	--text-title: 3.75rem;
+
+	--leading-body: 1.75;
+	--leading-quote: 1.45;
+	--leading-title: 1.2;
+	--leading-tight: 1.15;
+	--tracking-caps: 0.05em;
+
+	/* Spacing */
+	--offset: 0.15rem;  /* underline offset */
+	--radius: 1rem;     /* cell corners */
+	--pad: 1.2rem;      /* inside a cell */
+	--blank: 3.2rem;    /* height of a row of empty cells */
+	--nav-height: 4rem; /* the fixed nav on mobile */
+
+	--space-xs: 0.3rem;
+	--space-s: 0.75rem;
+	--space-m: 1.5rem;
+	--space-l: 3rem;
+	--space-xl: 3.6rem;
+	--line-length: 36rem;
+}
+
+body {
+	background-color: var(--black);
+	color: var(--black);
+	font-family: 'Newsreader', serif;
+	font-size: var(--text-body);
+	line-height: var(--leading-body);
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		'header'
+		'main'
+		'footer';
+
+	@media (width > 768px) {
+		grid-template-columns: 2fr 5fr;
+		grid-template-areas:
+		'header main'
+		'header footer';
+	}
+}
+
+header { grid-area: header; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+
+header > :not(nav),
+nav > ul,
+h1 > span,
+h1::before,
+h1::after,
+footer {
+	background-color: var(--paper);
+	border: 0.05rem solid var(--stroke);
+	border-radius: var(--radius);
+	padding: var(--pad);
+}
+
+
+header {
+	display: grid;
+	grid-template-areas:
+		'nav'
+		'byline'
+		'title'
+		'source';
+
+	@media (width > 768px) {
+		position: sticky;
+		inset-block-start: 0;
+		block-size: 90vh;
+
+		grid-template-rows: auto auto auto auto 1fr;
+		grid-template-areas:
+			'nav'
+			'byline'
+			'title'
+			'source'
+			'filler';
+
+		&::after {
+			content: '';
+			grid-area: filler;
+			background-color: var(--paper);
+			border: 0.05rem solid var(--stroke);
+			border-radius: var(--radius);
+		}
+	}
+}
+
+nav {
+	grid-area: nav;
+	font-size: var(--text-nav);
+	font-weight: 600;
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+		block-size: var(--nav-height);
+	}
+}
+
+.byline {
+	grid-area: byline;
+	font-size: var(--text-small);
+	padding-block-start: calc(var(--space-m) * 3);
+}
+
+.source {
+	grid-area: source;
+	font-size: var(--text-small);
+	text-align: end;
+
+	a::after { content: ' →'; }
+}
+
+header > h1 {
+	grid-area: title;
+	background-color: transparent;
+	border-style: none;
+	min-block-size: calc(60svh - var(--nav-height));
+	padding: 0;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-areas:
+		'thinking thinking thinking thinking'
+		'blank1 blank1 with with'
+		'type type type blank2';
+
+	font-size: var(--text-title);
+	font-weight: 500;
+	line-height: var(--leading-title);
+}
+
+h1 > span {
+	display: grid;
+	justify-items: center;
+	align-items: center;
+}
+
+h1 {
+	> span:nth-child(1) { grid-area: thinking; }
+	> span:nth-child(2) { grid-area: with; }
+	> span:nth-child(3) { grid-area: type; }
+}
+
+h1 {
+	&::before {
+		content: '';
+		grid-area: blank1;
+	}
+
+	&::after {
+		content: '';
+		grid-area: blank2;
+	}
+}
+
+article {
+	display: grid;
+
+	h2 {
+		font-weight: 600;
+		line-height: var(--leading-tight);
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-caps);
+		padding-block-end: var(--space-s);
+		padding-block-start: var(--space-xl);
+		text-wrap: balance;
+	}
+
+	p + p {
+		padding-block-start: var(--space-m);
+	}
+
+	a {
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: var(--offset);
+		padding-inline: calc(var(--space-s) / 3);
+	}
+
+	em { font-style: italic; }
+}
+
+.uppercase {
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-caps);
+}
+
+article > section {
+	display: grid;
+
+	> :not(blockquote, dl, .blank-row) {
+		background-color: var(--paper);
+		padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+	}
+
+	> :first-child,
+	> .blank-row + :not(blockquote, dl, .blank-row) {
+		padding-block-start: var(--space-xl);
+		border-block-start: 0.05rem solid var(--stroke);
+	}
+
+	> :last-child:not(blockquote, dl, .blank-row),
+	> :not(blockquote, dl):has(+ .blank-row) {
+		padding-block-end: var(--space-xl);
+		border-block-end: 0.05rem solid var(--stroke);
+	}
+
+	.section-number {
+		position: sticky;
+		inset-block-start: 0;
+
+		display: block;
+		text-align: center;
+		font-size: calc(var(--text-nav) * 1.8);
+		font-weight: 500;
+		line-height: var(--leading-tight);
+		background-color: var(--paper);
+		border: 0.05rem solid var(--stroke);
+		border-radius: var(--radius);
+		padding-block: var(--space-m);
+
+		&::before { content: '– §'; }
+		&::after  { content: ' –'; }
+	}
+}
+
+.blank-row {
+	display: grid;
+	grid-template-columns: 7fr 3fr;
+	block-size: var(--blank);
+
+	&::before,
+	&::after {
+		content: '';
+		background-color: var(--paper);
+		border: 0.05rem solid var(--stroke);
+		border-radius: var(--radius);
+	}
+}
+
+blockquote + .blank-row,
+dl + .blank-row,
+footer + .blank-row {
+	grid-template-columns: 3fr 7fr;
+}
+
+blockquote,
+dl {
+	background-color: var(--paper);
+	border: 0.05rem solid var(--stroke);
+	border-radius: var(--radius);
+	padding-block: var(--space-l);
+	padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
+}
+
+blockquote {
+	font-size: var(--text-quote);
+	font-weight: 500;
+	line-height: var(--leading-quote);
+	/* I want to control the hyphenation, I learned that the auto setting is: Minimum word length to allow hyphenation: 5, Minimum number of characters before the hyphen: 2, Minimum number of characters after the hyphen: 2 */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/hyphenate-limit-chars */
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
+}
+
+.classification dt {
+	font-size: var(--text-specimen);
+	line-height: var(--leading-tight);
+}
+
+.punctuation dt {
+	font-size: var(--text-punctuation);
+	line-height: var(--leading-tight);
+}
+
+dd {
+	font-size: var(--text-small);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-caps);
+	padding-block-start: var(--space-xs);
+
+	+ dt { padding-block-start: var(--space-m); }
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-s);
+	font-size: var(--text-small);
+
+	a {
+		font-size: var(--text-nav);
+		font-weight: 500;
+		text-align: end;
+		margin-block-end: var(--space-m);
+	}
+
+	a::after {
+		content: ' ↑';
+	}
+}
+
+@media (hover: hover) {
+	article {
+		a:hover {
+			background-color: var(--black);
+			color: var(--paper);
+		}
+	}
+}
