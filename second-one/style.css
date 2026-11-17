@@ -23,6 +23,7 @@
 	--leading-title: 1.2;
 	--leading-tight: 1.15;
 	--tracking-caps: 0.05em;
+	--tracking-spaced: 1rem;
 
 	/* Spacing */
 	--offset: 0.15rem;  /* underline offset */
@@ -212,6 +213,14 @@ article {
 	}
 
 	em { font-style: italic; }
+
+	b {
+		font-weight: 700;
+		letter-spacing: var(--tracking-caps);
+		padding-inline: calc(var(--space-s) / 3);
+	}
+
+	.spaced { letter-spacing: var(--tracking-spaced); }
 }
 
 .uppercase {
@@ -274,12 +283,14 @@ article > section {
 
 blockquote + .blank-row,
 dl + .blank-row,
-footer + .blank-row {
+footer + .blank-row,
+figure + .blank-row {
 	grid-template-columns: 3fr 7fr;
 }
 
 blockquote,
-dl {
+dl,
+figure {
 	background-color: var(--paper);
 	border: var(--border) solid var(--stroke);
 	border-radius: var(--corners);
@@ -297,14 +308,20 @@ blockquote {
 	hyphenate-limit-chars: 6 3 3;
 }
 
-.classification dt {
-	font-size: var(--text-specimen);
-	line-height: var(--leading-tight);
+.word-shape {
+	display: grid;
+	grid-template-columns: max-content;
+
+	p, dt {
+		font-size: var(--text-punctuation);
+		font-weight: 600;
+		line-height: var(--leading-tight);
+	}
 }
 
-.punctuation dt {
-	font-size: var(--text-punctuation);
-	line-height: var(--leading-tight);
+.stretched {
+	display: flex;
+	justify-content: space-between;
 }
 
 dd {
