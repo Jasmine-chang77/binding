@@ -16,6 +16,7 @@
 	--text-quote: 2rem;
 	--text-specimen: 2.1rem;
 	--text-punctuation: 2.5rem;
+	--text-wordshape: 2.8rem;
 	--text-title: 3.75rem;
 
 	--leading-body: 1.75;
@@ -24,6 +25,7 @@
 	--leading-tight: 1.15;
 	--tracking-caps: 0.05em;
 	--tracking-spaced: 1rem;
+	--tracking-squeezed: -0.8rem;
 
 	/* Spacing */
 	--offset: 0.15rem;  /* underline offset */
@@ -283,14 +285,12 @@ article > section {
 
 blockquote + .blank-row,
 dl + .blank-row,
-footer + .blank-row,
-figure + .blank-row {
+footer + .blank-row {
 	grid-template-columns: 3fr 7fr;
 }
 
 blockquote,
-dl,
-figure {
+dl {
 	background-color: var(--paper);
 	border: var(--border) solid var(--stroke);
 	border-radius: var(--corners);
@@ -312,17 +312,25 @@ blockquote {
 	display: grid;
 	grid-template-columns: max-content;
 
-	p, dt {
-		font-size: var(--text-punctuation);
+	dt {
+		font-family: "Cabin", sans-serif;
+		font-size: var(--text-wordshape);
 		font-weight: 600;
 		line-height: var(--leading-tight);
 	}
+
+	.stretched {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.squeezed {
+		font-size: calc(var(--text-wordshape) * 1.8);
+		letter-spacing: var(--tracking-squeezed);
+	}
 }
 
-.stretched {
-	display: flex;
-	justify-content: space-between;
-}
+
 
 dd {
 	font-size: var(--text-small);
