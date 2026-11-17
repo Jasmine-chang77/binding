@@ -239,6 +239,7 @@ article > section {
 		display: block;
 		text-align: center;
 		font-size: calc(var(--text-nav) * 1.8);
+		font-weight: 500;
 		line-height: var(--leading-tight);
 		background-color: var(--paper);
 		border: 0.05rem solid var(--stroke);
@@ -265,7 +266,8 @@ article > section {
 }
 
 blockquote + .blank-row,
-dl + .blank-row {
+dl + .blank-row,
+footer + .blank-row {
 	grid-template-columns: 3fr 7fr;
 }
 
