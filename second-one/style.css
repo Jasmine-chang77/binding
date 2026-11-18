@@ -214,7 +214,7 @@ article {
 		padding-inline: calc(var(--space-s) / 3);
 	}
 
-	em { font-style: italic; }
+	em, cite { font-style: italic; }
 
 	b {
 		font-weight: 700;
