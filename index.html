@@ -7,18 +7,68 @@
 		<style>
 			@import 'styles/reset.css' layer(reset);
 			@import 'styles/common.css' layer(common);
+			@import 'styles/style.css' layer(style);
 			/* Declare the layer, and the lower one will always win. */
 		</style>
 	</head>
 	<body>
-		<h1>Binding</h1>
-		<nav>
-			<ol>
-				<li><a href="thinking-with-type/">Thinking with Type</a></li>
-				<li><a href="the-shape-of-words/">The Shape of Words</a></li>
-				<li><a href="typography-is-a-grid/">Typography is a Grid</a></li>
-			</ol>
-		</nav>
-		<p>This is landing page.</p>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="../">Home</a></li>
+					<li><a href="thinking-with-type/">Type</a></li>
+					<li><a href="the-shape-of-words/">Shape</a></li>
+					<li><a href="typography-is-a-grid/">Grid</a></li>
+				</ul>
+			</nav>
+
+			<h1>Sorts</h1>
+		</header>
+
+		<main>
+			<article>
+				<section class="readings" aria-label="Readings">
+					<details class="rounded" name="readings">
+						<summary>
+							<h2>
+								<span class="word">Type</span>
+								<span class="title">Thinking with Type</span>
+							</h2>
+						</summary>
+						<div class="case-content">
+							<p class="byline">Ellen Lupton, <time datetime="2010">2010</time></p>
+							<p>Intro…</p>
+							<a href="lupton/" class="read-more">Read more</a>
+						</div>
+					</details>
+
+					<details class="leaf" name="readings">
+						<summary>
+							<h2>
+								<span class="word">Shape</span>
+								<span class="title">The Shape of Words</span>
+							</h2>
+						</summary>
+						<div class="case-content">…</div>
+					</details>
+
+					<details class="square" name="readings">
+						<summary>
+							<h2>
+								<span class="word">Grid</span>
+								<span class="title">Typography is a Grid</span>
+							</h2>
+						</summary>
+						<div class="case-content">…</div>
+					</details>
+				</section>
+			</article>
+		</main>
+
+		<footer>
+			<a href="#top">Top</a>
+			<p>Designed and developed © Jasmine Chang</p>
+			<p>Typography & Interaction · 26Fall · Parsons School of Design, The New School</p>
+		</footer>
 	</body>
 </html>
