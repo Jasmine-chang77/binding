@@ -130,6 +130,9 @@ h1 {
 
 .shape summary {
 	grid-template-columns: 2fr 1fr;
+	/* I lear how to use <order> in the flexbox froggy game on our class lecture, I also double check how to use it on MDN. */
+	/* https://flexboxfroggy.com/ */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/order */
 	&::before { order: 1; }
 }
 
