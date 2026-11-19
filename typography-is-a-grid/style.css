@@ -70,7 +70,6 @@ main { grid-area: main; }
 footer { grid-area: footer; }
 
 header > :not(nav),
-nav > ul,
 h1 > span,
 h1::before,
 h1::after,
@@ -119,6 +118,8 @@ nav {
 	grid-area: nav;
 	font-size: var(--text-nav);
 	font-weight: 600;
+	background-color: var(--paper);
+	border: var(--border) solid var(--stroke);
 
 	ul {
 		display: flex;
