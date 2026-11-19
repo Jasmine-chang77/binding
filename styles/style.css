@@ -87,7 +87,7 @@ h1 {
 	text-transform: uppercase;
 	letter-spacing: var(--tracking-caps);
 	text-align: center;
-	line-height: 0.4;
+	line-height: 0.45;
 
 	padding-block-start: calc(var(--space-l) * 1.5);
 	border-block-start: 0.05rem solid var(--black);
