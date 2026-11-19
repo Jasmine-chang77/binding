@@ -94,7 +94,7 @@ header {
 	@media (width > 768px) {
 		position: sticky;
 		inset-block-start: 0;
-		block-size: 90vh;
+		block-size: 100vh;
 
 		grid-template-rows: auto auto auto auto 1fr;
 		grid-template-areas:
