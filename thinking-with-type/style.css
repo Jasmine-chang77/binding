@@ -93,6 +93,7 @@ header {
 		inset-block-start: 0;
 		block-size: 100vh;
 
+		/* I want the empty cell at the bottom to always fill the rest of the column. auto means the row is only as tall as what's inside it, so nav, byline. */
 		grid-template-rows: auto auto auto auto 1fr;
 		grid-template-areas:
 			'nav'
