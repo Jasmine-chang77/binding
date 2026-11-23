@@ -7,7 +7,7 @@
 	/* Color */
 	--paper: #FAF9F6;
 	--black: #000000;
-	--stroke: #000000;
+	--stroke: #D7D7D7;
 
 	/* Type scale */
 	--text-small: 0.8rem;
@@ -26,10 +26,9 @@
 
 	/* Spacing */
 	--offset: 0.15rem;  /* underline offset */
-	--radius: 0.5rem;     /* cell corners */
-	--corners: var(--radius);
-	--border-inline: 0.05rem;
-	--border-block: 0.1rem;
+	--radius: 1.75rem;     /* cell corners */
+	--corners: var(--radius) 0;
+	--border: 0.05rem;
 
 	--pad: 1.2rem;      /* inside a cell */
 	--blank: 3.2rem;    /* height of a row of empty cells */
@@ -75,8 +74,7 @@ h1::before,
 h1::after,
 footer {
 	background-color: var(--paper);
-	border-inline: var(--border-inline) solid var(--stroke);
-	border-block: var(--border-block) solid var(--stroke);
+	border: var(--border) solid var(--stroke);
 	border-radius: var(--corners);
 	padding: var(--pad);
 }
@@ -107,8 +105,7 @@ header {
 			content: '';
 			grid-area: filler;
 			background-color: var(--paper);
-			border-inline: var(--border-inline) solid var(--stroke);
-			border-block: var(--border-block) solid var(--stroke);
+			border: var(--border) solid var(--stroke);
 			border-radius: var(--corners);
 		}
 	}
@@ -253,8 +250,7 @@ article > section {
 		font-weight: 500;
 		line-height: var(--leading-tight);
 		background-color: var(--paper);
-		border-inline: var(--border-inline) solid var(--stroke);
-		border-block: var(--border-block) solid var(--stroke);
+		border: var(--border) solid var(--stroke);
 		border-radius: var(--corners);
 		padding-block: var(--space-m);
 
@@ -272,8 +268,7 @@ article > section {
 	&::after {
 		content: '';
 		background-color: var(--paper);
-		border-inline: var(--border-inline) solid var(--stroke);
-		border-block: var(--border-block) solid var(--stroke);
+		border: var(--border) solid var(--stroke);
 		border-radius: var(--corners);
 	}
 }
@@ -287,8 +282,7 @@ footer + .blank-row {
 blockquote,
 dl {
 	background-color: var(--paper);
-	border-inline: var(--border-inline) solid var(--stroke);
-	border-block: var(--border-block) solid var(--stroke);
+	border: var(--border) solid var(--stroke);
 	border-radius: var(--corners);
 	padding-block: var(--space-l);
 	padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
@@ -349,3 +343,6 @@ footer {
 		}
 	}
 }
+
+
+/* * { outline: 1px solid red } */

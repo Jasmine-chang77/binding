@@ -65,25 +65,9 @@ header { grid-area: header; }
 main { grid-area: main; }
 footer { grid-area: footer; }
 
-nav {
-	grid-area: nav;
-	font-size: var(--text-nav);
-	font-weight: 600;
-	background-color: var(--paper);
-	border: var(--border) solid var(--stroke);
-
-	ul {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding-inline: max(var(--pad), calc((100% - var(--line-length)) / 2));
-		block-size: var(--nav-height);
-	}
-}
-
 h1 {
 	background-color: var(--paper);
-	font-size: calc(var(--text-title) * 1.75);
+	font-size: calc(var(--text-title) * 1.5);
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: var(--tracking-caps);
@@ -97,12 +81,7 @@ h1 {
 
 .type { --corners: var(--radius); }
 .shape { --corners: 0 calc(var(--radius) * 1.75); }
-.grid {
-	--corners: calc(var(--radius) * 0.5);
-	--stroke: var(--black);
-	border-inline: var(--border-inline) solid var(--block);
-	border-block: var(--border-block) solid var(--black);
-}
+.grid { --corners: calc(var(--radius) * 1.75) 0; }
 
 .readings summary {
 	display: grid;
@@ -226,3 +205,5 @@ footer {
 		content: ' ↑';
 	}
 }
+
+/* * { outline: 1px solid red } */
